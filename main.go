@@ -16,7 +16,7 @@ func main() {
 
 	app.Get("/", func(c *fiber.Ctx) error {
 		return c.Render("index", fiber.Map{
-			"Title": "Hello, World!",
+			"Title": "Bukalawak",
 		})
 	})
 
@@ -46,7 +46,7 @@ func main() {
 	app.Get("/recents", func(c *fiber.Ctx) error {
 		latestPosts := [4]Post{posts[3], posts[2], posts[1], posts[0]}
 
-		return c.Render("recents", fiber.Map{
+		return c.Render("partials/recents", fiber.Map{
 			"Jokes": latestPosts,
 		})
 	})
@@ -65,7 +65,8 @@ func main() {
 		}
 		post := posts[postId]
 		return c.Render("detail", fiber.Map{
-			"Joke": post,
+			"Title": post.Q,
+			"Joke":  post,
 		})
 	})
 
