@@ -19,3 +19,6 @@ bukalawak-web
 
 # debug
 __debug_bin
+
+# vscode launch
+.vscode
