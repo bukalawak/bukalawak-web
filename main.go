@@ -9,6 +9,13 @@ import (
 )
 
 func main() {
+
+	app := Setup()
+	// start server
+	log.Fatal(app.Listen(":8000"))
+}
+
+func Setup() *fiber.App {
 	engine := html.New("./views", ".html")
 	app := fiber.New(fiber.Config{
 		Views: engine,
@@ -71,6 +78,6 @@ func main() {
 	})
 
 	app.Static("/", "./public")
-	// start server
-	log.Fatal(app.Listen(":8000"))
+
+	return app
 }
